@@ -82,6 +82,11 @@ def solution(priorities, location):
     return answer
 
 #다른사람 풀이
+'''
+실제 그 값을 삭제하지 않고 0을 대입하여 무효화 시키는 방법도 있다.
+문제 상에서의 액션그대로 구현하지 않고 cursor를 증가시켜 나머지로
+컨트롤 하는 것처럼 눈속임 가능 - 더 시간적으로 효율적이다
+'''
 def solution(priorities, location):
     jobs = len(priorities)
     answer = 0
