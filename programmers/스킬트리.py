@@ -7,7 +7,7 @@ def solution(skill, skill_trees):
         for st in skill_tree:
             if st in skill:
                 now = skill.index(st)
-                if pre > now or now != pre + 1 or (pre == -1 and now != 0):
+                if now != pre + 1 or (pre == -1 and now != 0):
                     is_vaild = False
                     break
                 pre = now
