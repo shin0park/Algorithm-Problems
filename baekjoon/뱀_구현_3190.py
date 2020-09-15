@@ -1,19 +1,13 @@
 from collections import deque
 
-dx = [0,0,-1,0,1]#행
-dy = [0,1,0,-1,0]#열
+dx = [0,1,0,-1]#행
+dy = [1,0,-1,0]#열
 
-def rotate_clockwise(direct):
-    if direct == 1:
-        return 4
+def turn(direct, c):
+    if c == 'L':
+        return (direct - 1) % 4
     else:
-        return direct - 1
-    
-def rotate_counter_clockwise(direct):
-    if direct == 4:
-        return 1
-    else:
-        return direct + 1
+        return (direct + 1) % 4
     
 n = int(input())
 k = int(input())
@@ -29,7 +23,7 @@ for i in range(l):
 
 snake = deque([])
 time = 0
-direct = 1
+direct = 0
 x, y = 0, 0
 board[x][y] = 2 #snake
 snake.append([x,y])
@@ -47,10 +41,7 @@ while True:
         board[rx][ry] = 0
     snake.append([x,y])
     if time in dict_dir:
-        if dict_dir[time] == 'L':
-            direct = rotate_counter_clockwise(direct)
-        else:
-            direct = rotate_clockwise(direct)
+        direct = turn(direct, dict_dir[time])
     
 print(time)
-    
+
