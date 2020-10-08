@@ -4,7 +4,7 @@
 dp[i] --> i번째 부터 끝까지의 최대 수익값
 '''
 N = int(input())
-schedule= [list(map(int, input().split())) for _ in range(N)]
+schedule = [list(map(int, input().split())) for _ in range(N)]
 dp = [0 for _ in range(N+2)]
 answer = 0
 
