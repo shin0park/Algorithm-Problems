@@ -4,16 +4,19 @@
 이럴경우 list 에 변하는 지점을 append하여 그 지점만 접근해서
 값을 수정해주는게 더 효율적이다.
 '''
-from _collections import deque
+from collections import deque
 import sys
+
 input = sys.stdin.readline
 n, l, r = map(int, input().split())
 board = [list(map(int, input().split())) for _ in range(n)]
 visited = [[0] * n for _ in range(n)]
 answer = 0
+
+
 def bfs(start):
-    dx = [-1,0,1,0]
-    dy = [0,1,0,-1]
+    dx = [-1, 0, 1, 0]
+    dy = [0, 1, 0, -1]
     united = []
     q = deque([])
     x, y = start
@@ -46,13 +49,14 @@ def bfs(start):
             board[i][j] = value
         return True
 
+
 while True:
     is_vaild = False
     visited = [[0] * n for _ in range(n)]
     for i in range(n):
         for j in range(n):
             if visited[i][j] == 0:
-                result = bfs([i,j])
+                result = bfs([i, j])
                 if result:
                     is_vaild = True
     if not is_vaild:
